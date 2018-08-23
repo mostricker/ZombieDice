@@ -1,8 +1,2 @@
 Testing
 Test
-Tested=======
-Change to Tom's text here
-Hi there.
-Sup man!
-Rock ON!
->>>>>>> 154d398ca4214a7a2cb37f763d8fb8729f6b7c4e
