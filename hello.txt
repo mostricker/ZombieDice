@@ -1,3 +1,4 @@
-<<<<<<< HEAD
-=======
->>>>>>> d3f0f99f93fee7a10edd146eb9ca14e75de6e61d
+Change to Tom's text here
+Hi there.
+Sup man!
+Rock ON!
