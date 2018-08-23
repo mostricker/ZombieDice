@@ -1,0 +1,26 @@
+Green Dice
+Count=6
+Brain=3
+50%
+Shotgun=1
+17%
+Runner=2
+33%
+
+Yellow Dice
+Count=4
+Brain=2
+33%
+Shotgun=2
+33%
+Runner=2
+33%
+
+Red Dice
+Count=3
+Brain=1
+17%
+Shotgun=3
+50%
+Runner=2
+33%
