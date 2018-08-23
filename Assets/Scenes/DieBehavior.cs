@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeBehavior : MonoBehaviour {
+public class DieBehavior : MonoBehaviour {
 
     public float speed = 1.0f;
 
