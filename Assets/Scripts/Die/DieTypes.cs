@@ -10,4 +10,4 @@ public enum DieType
     Brain,
     Footprints,
     Shotgun
-}
+};

@@ -200,8 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583fc065282ca414f83182f6190d2c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Color: 1
-  m_Type: 2
+  m_Color: 2
+  m_Type: 1
   m_BrainGreen: {fileID: 21300000, guid: 46364b80eba3c324ea612897da9f3445, type: 3}
   m_BrainRed: {fileID: 21300000, guid: c01bdb64d592ace4898fc48e2a6205d4, type: 3}
   m_BrainYellow: {fileID: 21300000, guid: e049fe90694ca6245bae99a99b81238f, type: 3}
@@ -330,3 +330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dieReference: {fileID: 253420981}
+  m_GreenDieCount: 6
+  m_YellowDieCount: 4
+  m_RedDieCount: 3
