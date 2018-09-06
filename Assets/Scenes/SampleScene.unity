@@ -200,10 +200,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583fc065282ca414f83182f6190d2c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myColor: 0
-  m_GreenSprite: {fileID: 21300000, guid: 46364b80eba3c324ea612897da9f3445, type: 3}
-  m_RedSprite: {fileID: 21300000, guid: c01bdb64d592ace4898fc48e2a6205d4, type: 3}
-  m_YellowSprite: {fileID: 21300000, guid: e049fe90694ca6245bae99a99b81238f, type: 3}
+  m_Color: 1
+  m_Type: 2
+  m_BrainGreen: {fileID: 21300000, guid: 46364b80eba3c324ea612897da9f3445, type: 3}
+  m_BrainRed: {fileID: 21300000, guid: c01bdb64d592ace4898fc48e2a6205d4, type: 3}
+  m_BrainYellow: {fileID: 21300000, guid: e049fe90694ca6245bae99a99b81238f, type: 3}
+  m_FootprintsGreen: {fileID: 21300000, guid: 6a9a67229716e4a45878d1562dcb55e3, type: 3}
+  m_FootprintsRed: {fileID: 21300000, guid: 1bf400be97d64ff47a9cdcf811466d2b, type: 3}
+  m_FootprintsYellow: {fileID: 21300000, guid: 5a8ad3c95534fb94a91779c09e16371a, type: 3}
+  m_ShotgunGreen: {fileID: 21300000, guid: 2a997aaf654cf9f48b867adf7d976261, type: 3}
+  m_ShotgunRed: {fileID: 21300000, guid: 925e29f4e8fcaad4fb754b3356131140, type: 3}
+  m_ShotgunYellow: {fileID: 21300000, guid: 80d9285bf98a6784fa4ac5498c7f3442, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

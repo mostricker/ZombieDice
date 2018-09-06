@@ -5,39 +5,67 @@ using UnityEngine;
 public class DieBehavior : MonoBehaviour
 {
     SpriteRenderer m_SpriteRenderer;
-    public DieColor myColor = DieColor.Green;
+    public DieColor m_Color;
+    public DieType m_Type;
 
-    public Sprite m_GreenSprite;
-    public Sprite m_RedSprite;
-    public Sprite m_YellowSprite;
+    public Sprite m_BrainGreen, m_BrainRed, m_BrainYellow,
+        m_FootprintsGreen, m_FootprintsRed, m_FootprintsYellow,
+        m_ShotgunGreen, m_ShotgunRed, m_ShotgunYellow;
 
     // Use this for initialization
-    void Start () {
-        Debug.Log("I am alive!");
+    void Start()
+    {
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Change internal state
-        if (Input.GetButtonDown("change_die_color"))
+        // Green die
+        if (m_Type == DieType.Brain)
         {
-            myColor = myColor.Next();
+            if (m_Color == DieColor.Green)
+            {
+                m_SpriteRenderer.sprite = m_BrainGreen;
+            }
+            else if (m_Color == DieColor.Red)
+            {
+                m_SpriteRenderer.sprite = m_BrainRed;
+            }
+            else if (m_Color == DieColor.Yellow)
+            {
+                m_SpriteRenderer.sprite = m_BrainYellow;
+            }
         }
-    
-        // Render changes
-        if (myColor == DieColor.Green)
+        else if (m_Type == DieType.Footprints)
         {
-            m_SpriteRenderer.sprite = m_GreenSprite;
+            if (m_Color == DieColor.Green)
+            {
+                m_SpriteRenderer.sprite = m_FootprintsGreen;
+            }
+            else if (m_Color == DieColor.Red)
+            {
+                m_SpriteRenderer.sprite = m_FootprintsRed;
+            }
+            else if (m_Color == DieColor.Yellow)
+            {
+                m_SpriteRenderer.sprite = m_FootprintsYellow;
+            }
         }
-        else if (myColor == DieColor.Red)
+        else if (m_Type == DieType.Shotgun)
         {
-            m_SpriteRenderer.sprite = m_RedSprite;
-        }
-        else if (myColor == DieColor.Yellow)
-        {
-            m_SpriteRenderer.sprite = m_YellowSprite;
+            if (m_Color == DieColor.Green)
+            {
+                m_SpriteRenderer.sprite = m_ShotgunGreen;
+            }
+            else if (m_Color == DieColor.Red)
+            {
+                m_SpriteRenderer.sprite = m_ShotgunRed;
+            }
+            else if (m_Color == DieColor.Yellow)
+            {
+                m_SpriteRenderer.sprite = m_ShotgunYellow;
+            }
         }
     }
 }
