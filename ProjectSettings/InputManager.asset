@@ -279,10 +279,10 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: roll_dice
-    descriptiveName: Rolll Dice
+    descriptiveName: Roll Dice
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: escape
+    positiveButton: r
     altNegativeButton: 
     altPositiveButton: joystick button 1
     gravity: 1000
