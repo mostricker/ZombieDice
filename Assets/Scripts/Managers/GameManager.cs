@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class GameManager : MonoBehaviour {
-
-	public GameObject m_dieReference;
+public class GameManager : MonoBehaviour
+{
+    public GameObject m_dieReference;
 
     // Global
     public List<Die> m_Cup = new List<Die>();
@@ -19,10 +19,10 @@ public class GameManager : MonoBehaviour {
     public int m_Brains;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         StartTurn();
-	}
+    }
 
     void StartTurn()
     {
@@ -84,9 +84,9 @@ public class GameManager : MonoBehaviour {
             m_Cup.RemoveAt(0);
         }
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         if (Input.GetButtonDown("roll_dice"))
         {
