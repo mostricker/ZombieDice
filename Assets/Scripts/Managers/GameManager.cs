@@ -1,11 +1,10 @@
-﻿using Assets.Scripts.Die;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject m_dieReference;
+    public GameObject m_diePrefab;
 
     // Cup with all (or remaining) dice
     public List<Die> m_Cup = new List<Die>();
@@ -28,7 +27,8 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        StartTurn();
+        // StartTurn();
+        GameObject theOneDie = Instantiate(m_diePrefab);
     }
 
     void StartTurn()
