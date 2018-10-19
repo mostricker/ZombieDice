@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Die;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -8,14 +7,22 @@ public class GameManager : MonoBehaviour
 {
     public GameObject m_dieReference;
 
-    // Global
+    // Cup with all (or remaining) dice
     public List<Die> m_Cup = new List<Die>();
+
+    // Player name => Player score
     public Dictionary<string, int> m_Players;
 
-    // Current turn stuff
+    // Whose turn is it
     public int m_Turn = 0;
-    public List<Die> m_Hand = new List<Die>(); // all 3, or footprints
-    public List<Die> m_Aside = new List<Die>(); // brains, shotguns
+
+    // Dice in hand. This can be dice of all 3 types, or just footprints
+    public List<Die> m_Hand = new List<Die>();
+
+    // Dice set aside. This is only brains and shotguns.
+    public List<Die> m_Aside = new List<Die>();
+
+    // Potential score of the current turn. This is needed because brain dice may be recycled.
     public int m_Brains;
 
     // Use this for initialization
@@ -35,9 +42,16 @@ public class GameManager : MonoBehaviour
         // Reset current player things
         m_Hand.Clear();
         m_Aside.Clear();
+        m_Brains = 0;
 
         // Draw dice to begin turn
         GetDice();
+    }
+
+    void NextTurn()
+    {
+        m_Turn = (m_Turn + 1) % m_Players.Count;
+        StartTurn();
     }
 
     void AddDiceToCup(int count, DieColor color)
@@ -51,26 +65,29 @@ public class GameManager : MonoBehaviour
     // How many footprint dice does the current player have?
     int NumFootPrints()
     {
-        return m_Hand.Select(die => die.m_Type == DieType.Footprints).ToArray().Count();
+        return m_Hand.Select(die => die.IsFootprints).ToArray().Count();
     }
 
     // Draws up to 3 dice from the cup
     void GetDice()
     {
-        // don't draw more than 3 dice
+        // is our hand already full?
         if (m_Hand.Count >= 3)
         {
             return;
         }
 
-        // handle empty cup issue, replace brains
-        // ...
-
-        // replace brains and shotguns
+        // if now, how many dice do we need to draw?
         int numDiceToDraw = 3 - NumFootPrints();
         if (numDiceToDraw == 0)
         {
             return;
+        }
+
+        // does the cup have enough dice for us to draw?
+        if (m_Cup.Count < numDiceToDraw)
+        {
+            PlaceBrainRollsIntoCup();
         }
 
         // shuffle cup
@@ -83,6 +100,20 @@ public class GameManager : MonoBehaviour
             m_Hand.Add(m_Cup[0]);
             m_Cup.RemoveAt(0);
         }
+    }
+
+    void PlaceBrainRollsIntoCup()
+    {
+        for (int i = 0; i < m_Aside.Count; i++)
+        {
+            if (m_Aside[i].IsBrain)
+            {
+                m_Brains += 1;
+                m_Cup.Add(m_Aside[i]);
+            }
+        }
+
+        m_Aside.RemoveAll(die => die.IsBrain);
     }
 
     // Update is called once per frame
@@ -112,10 +143,10 @@ public class GameManager : MonoBehaviour
         m_Hand.ForEach(die => die.Roll());
 
         // randomize die type
-        //for (int i = 0; i < m_Hand.Count; i++)
-        //{
-        //    m_Hand[i].Roll();
-        //}
+        for (int i = 0; i < m_Hand.Count; i++)
+        {
+            m_Hand[i].Roll();
+        }
     }
 
     void PutDiceAside()
@@ -123,13 +154,13 @@ public class GameManager : MonoBehaviour
         // copy shotguns and brains out of the hand...
         for (int i = 0; i < m_Hand.Count; i++)
         {
-            if (m_Hand[i].m_Type == DieType.Shotgun || m_Hand[i].m_Type == DieType.Brain)
+            if (m_Hand[i].IsShotgun || m_Hand[i].IsBrain)
             {
                 m_Aside.Add(m_Hand[i]);
             }
         }
 
         // then remove them
-        m_Hand.RemoveAll(die => die.m_Type == DieType.Shotgun || die.m_Type == DieType.Brain);
+        m_Hand.RemoveAll(die => die.IsShotgun || die.IsBrain);
     }
 }

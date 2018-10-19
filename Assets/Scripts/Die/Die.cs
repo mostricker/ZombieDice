@@ -16,6 +16,21 @@ namespace Assets.Scripts.Die
             this.m_Color = color;
         }
 
+        public bool IsBrain
+        {
+            get { return m_Type == DieType.Brain; }
+        }
+
+        public bool IsFootprints
+        {
+            get { return m_Type == DieType.Footprints; }
+        }
+
+        public bool IsShotgun
+        {
+            get { return m_Type == DieType.Shotgun;  }
+        }
+
         // Randomizes the type of die we are
         // e.g. Brain, Shotgun, Footprints
         public void Roll()
