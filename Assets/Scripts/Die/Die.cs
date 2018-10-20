@@ -69,9 +69,9 @@ public class Die : MonoBehaviour
         }
     }
 
-    public Die(DieColor color)
+    public void setColor(DieColor color)
     {
-        this.m_Color = color;
+        m_Color = color;
     }
 
     public void SetDieInstance(GameObject dieInstance)

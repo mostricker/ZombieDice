@@ -58,11 +58,11 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            // create vanilla die instance
-            var die = new Die(color);
-
             // create game object
             var obj = Instantiate(m_diePrefab);
+            var die = (Die)obj.GetComponent<Die>();
+            die.setColor(color);
+
             var x = 0;
             if (die.IsRed)
             {
