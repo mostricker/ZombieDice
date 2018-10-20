@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // Prefab die to clone
     public GameObject m_diePrefab;
 
     // Player name => Player score
@@ -27,10 +28,7 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // StartTurn();
-        GameObject theOneDie = Instantiate(m_diePrefab);
-        theOneDie.transform.position = new Vector3(0.0f, 1.0f, 0.0f);
-
+        StartTurn();
     }
 
     void StartTurn()
@@ -60,7 +58,25 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            m_Cup.Add(new Die(color));
+            // create vanilla die instance
+            var die = new Die(color);
+
+            // create game object
+            var obj = Instantiate(m_diePrefab);
+            var x = 0;
+            if (die.IsRed)
+            {
+                x = 1;
+            }
+            else if (die.IsYellow)
+            {
+                x = 2;
+            }
+            obj.transform.position = new Vector3(x, i, 0.0f);
+            die.SetDieInstance(obj);
+
+            // add newly created die (and associated game object) to the cup
+            m_Cup.Add(die);
         }
     }
 

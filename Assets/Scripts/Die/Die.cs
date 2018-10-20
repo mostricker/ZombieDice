@@ -13,7 +13,6 @@ public class Die : MonoBehaviour
         m_FootprintsGreen, m_FootprintsRed, m_FootprintsYellow,
         m_ShotgunGreen, m_ShotgunRed, m_ShotgunYellow;
 
-    // Use this for initialization
     void Start()
     {
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
@@ -75,6 +74,11 @@ public class Die : MonoBehaviour
         this.m_Color = color;
     }
 
+    public void SetDieInstance(GameObject dieInstance)
+    {
+        this.m_DieInstance = dieInstance;
+    }
+
     // Type properties
     public bool IsBrain
     {
@@ -113,19 +117,19 @@ public class Die : MonoBehaviour
     {
         int roll = UnityEngine.Random.Range(1, 7);
 
-        if (roll < 4 && m_Color == DieColor.Green)
+        if (roll < 4 && IsGreen)
         {
             m_Type = DieType.Brain;
             return;
         }
 
-        if (roll < 3 && m_Color == DieColor.Yellow)
+        if (roll < 3 && IsYellow)
         {
             m_Type = DieType.Brain;
             return;
         }
 
-        if (roll < 2 && m_Color == DieColor.Red)
+        if (roll < 2 && IsRed)
         {
             m_Type = DieType.Brain;
             return;
