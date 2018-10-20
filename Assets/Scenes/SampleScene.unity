@@ -233,4 +233,7 @@ MonoBehaviour:
   m_diePrefab: {fileID: 1995804137271566, guid: 883ec767b9e6c914d8da275289ad960a,
     type: 2}
   m_Turn: 0
+  m_Cup: []
+  m_Hand: []
+  m_Aside: []
   m_Brains: 0

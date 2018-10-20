@@ -8,7 +8,6 @@ public class Die : MonoBehaviour
     public DieType m_Type;
 
     private SpriteRenderer m_SpriteRenderer;
-    private Transform m_Transform;
 
     public Sprite m_BrainGreen, m_BrainRed, m_BrainYellow,
         m_FootprintsGreen, m_FootprintsRed, m_FootprintsYellow,
@@ -18,7 +17,6 @@ public class Die : MonoBehaviour
     void Start()
     {
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
-        m_Transform = GetComponent<Transform>();
     }
 
     // Update is called once per frame
