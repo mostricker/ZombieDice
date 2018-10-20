@@ -6,14 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public GameObject m_diePrefab;
 
-    // Cup with all (or remaining) dice
-    public List<Die> m_Cup = new List<Die>();
-
     // Player name => Player score
     public Dictionary<string, int> m_Players;
 
     // Whose turn is it
     public int m_Turn = 0;
+
+    // Cup with all (or remaining) dice
+    public List<Die> m_Cup = new List<Die>();
 
     // Dice in hand. This can be dice of all 3 types, or just footprints
     public List<Die> m_Hand = new List<Die>();
