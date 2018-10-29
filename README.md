@@ -1,6 +1,6 @@
 # Zombie Dice
 
-Simple Unity project for learning purposes.
+Simple Unity project for resurrection purposes.
 
 ## Turn options
 
